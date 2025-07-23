@@ -1,0 +1,38 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<link rel="stylesheet" href="~/styles/app.css" type="text/css" />
+
+<form asp-action="Register">
+    <input type="hidden" asp-for="ReturnUrl" />
+
+    <div class="login-title">Registration</div>
+
+    <div>
+        <label asp-for="UserName">User name</label>
+        <input asp-for="UserName" />
+        <span class="error" asp-validation-for="UserName"></span>
+    </div>
+
+    <div>
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" type="password" />
+        <span class="error" asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <label asp-for="ConfirmPassword">Confirm password</label>
+        <input asp-for="ConfirmPassword" type="password" />
+        <span class="error" asp-validation-for="Password"></span>
+    </div>
+
+    <div>
+        <button type="submit">Sign up</button>
+    </div>
+
+    <a class="register-link" asp-controller="Auth" asp-action="Login"
+       asp-route-returnUrl="@Model.ReturnUrl">Login</a>
+</form>

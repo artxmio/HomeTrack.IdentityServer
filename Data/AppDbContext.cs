@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HomeTrack.IdentityServer.Data;
 
-public class AppDbContext(DbContextOptions options) : IdentityDbContext(options)
+public class AppDbContext(DbContextOptions options) : IdentityDbContext<AppUser>(options)
 {
     protected override void OnModelCreating(ModelBuilder builder)
     {
